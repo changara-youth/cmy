@@ -61,6 +61,15 @@
             -webkit-text-fill-color: transparent;
         }
         
+        @keyframes shineText {
+            0% { opacity: 0.7; text-shadow: 0 0 2px rgba(232, 197, 71, 0.3); }
+            50% { opacity: 1; text-shadow: 0 0 10px rgba(232, 197, 71, 0.8), 0 0 20px rgba(232, 197, 71, 0.4); }
+            100% { opacity: 0.7; text-shadow: 0 0 2px rgba(232, 197, 71, 0.3); }
+        }
+        .animate-shine {
+            animation: shineText 2.5s infinite ease-in-out;
+        }
+
         .btn-gold {
             background: linear-gradient(135deg, #e8c547 0%, #d4a017 100%);
             color: #061f17;
@@ -122,15 +131,23 @@
                 <a href="#about" class="hover:text-amber-400 transition">About</a>
                 <a href="#leader" class="hover:text-amber-400 transition">Leadership</a>
                 <a href="#work" class="hover:text-amber-400 transition">Our Work</a>
-                <a href="#donate" class="hover:text-amber-400 transition">Donate</a>
+                <a href="#donate" class="hover:text-amber-400 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-hand-holding-dollar text-amber-400"></i> Donate
+                </a>
                 <a href="#event" class="hover:text-amber-400 transition text-amber-400">Seminar 2026</a>
                 <a href="#gallery" class="hover:text-amber-400 transition">Gallery</a>
                 <a href="#contact" class="hover:text-amber-400 transition">Contact</a>
             </nav>
             
-            <button onclick="openModal('joinModal')" class="hidden lg:inline-flex btn-gold px-5 py-2 rounded-full text-sm font-semibold">
-                Join Us
-            </button>
+            <!-- Top Right Corner: Shining Paybill Ticker & Buttons -->
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="#donate" class="text-xs text-amber-400 font-mono tracking-wider px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 animate-shine flex items-center gap-1.5">
+                    <i class="fa-solid fa-wallet"></i> Paybill: 400200 | A/C: 55549
+                </a>
+                <button onclick="openModal('joinModal')" class="btn-gold px-5 py-2 rounded-full text-sm font-semibold">
+                    Join Us
+                </button>
+            </div>
             
             <button id="menuBtn" class="lg:hidden text-white p-2" aria-label="Menu">
                 <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
@@ -142,11 +159,14 @@
             <a href="#about" onclick="closeMenu()" class="block py-3 text-white/90 border-b border-white/10">About</a>
             <a href="#leader" onclick="closeMenu()" class="block py-3 text-white/90 border-b border-white/10">Leadership</a>
             <a href="#work" onclick="closeMenu()" class="block py-3 text-white/90 border-b border-white/10">Our Work</a>
-            <a href="#donate" onclick="closeMenu()" class="block py-3 text-white/90 border-b border-white/10">Donate</a>
+            <a href="#donate" onclick="closeMenu()" class="block py-3 text-amber-400 border-b border-white/10 flex items-center gap-2"><i class="fa-solid fa-hand-holding-dollar"></i> Donate (Paybill: 400200)</a>
             <a href="#event" onclick="closeMenu()" class="block py-3 text-amber-400 font-medium border-b border-white/10">December Seminar 2026</a>
             <a href="#gallery" onclick="closeMenu()" class="block py-3 text-white/90 border-b border-white/10">Gallery</a>
             <a href="#contact" onclick="closeMenu()" class="block py-3 text-white/90">Contact</a>
-            <button onclick="openModal('joinModal'); closeMenu()" class="w-full mt-4 btn-gold py-3 rounded-xl font-semibold">Join the Group</button>
+            <div class="pt-2">
+                <div class="text-center text-xs text-amber-400 font-mono py-2 animate-shine">Paybill: 400200 | A/C: 55549</div>
+                <button onclick="openModal('joinModal'); closeMenu()" class="w-full mt-2 btn-gold py-3 rounded-xl font-semibold">Join the Group</button>
+            </div>
         </div>
     </header>
 
