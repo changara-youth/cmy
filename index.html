@@ -80,17 +80,8 @@
             box-shadow: 0 25px 50px -12px rgba(6, 31, 23, 0.15);
         }
         
+        .gallery-item { transition: all 0.4s ease; }
         .gallery-item.hidden-item { display: none !important; }
-        
-        #backTop {
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s ease;
-        }
-        #backTop.visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
         
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f0f7f4; }
@@ -336,7 +327,7 @@
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Cleaning / Community Clean-up -->
+                <!-- Cleaning -->
                 <article class="bg-white rounded-2xl p-8 card-lift border border-gray-100">
                     <div class="w-12 h-12 rounded-xl bg-forest-100 text-forest-800 flex items-center justify-center text-xl mb-5">
                         <i class="fa-solid fa-broom"></i>
@@ -345,7 +336,7 @@
                     <p class="text-gray-500 text-sm leading-relaxed">Environmental hygiene drives and clean-up exercises around Changara markets, public spaces, and mosques.</p>
                 </article>
 
-                <!-- Farming / Agriculture -->
+                <!-- Farming -->
                 <article class="bg-white rounded-2xl p-8 card-lift border border-gray-100">
                     <div class="w-12 h-12 rounded-xl bg-forest-100 text-forest-800 flex items-center justify-center text-xl mb-5">
                         <i class="fa-solid fa-seedling"></i>
@@ -354,7 +345,7 @@
                     <p class="text-gray-500 text-sm leading-relaxed">Group agricultural projects including maize farming and food security initiatives to foster food self-sufficiency.</p>
                 </article>
 
-                <!-- Sports (under Activity) -->
+                <!-- Sports -->
                 <article class="bg-white rounded-2xl p-8 card-lift border border-gray-100">
                     <div class="w-12 h-12 rounded-xl bg-forest-100 text-forest-800 flex items-center justify-center text-xl mb-5">
                         <i class="fa-solid fa-futbol"></i>
@@ -385,30 +376,6 @@
                     </div>
                     <h3 class="font-semibold text-xl text-forest-900 mb-2">December Youth Seminar</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Our flagship multi-day gathering of scholars, workshops and fellowship for youth from across the sub-county.</p>
-                </article>
-                
-                <article class="bg-white rounded-2xl p-8 card-lift border border-gray-100">
-                    <div class="w-12 h-12 rounded-xl bg-forest-100 text-forest-800 flex items-center justify-center text-xl mb-5">
-                        <i class="fa-solid fa-piggy-bank"></i>
-                    </div>
-                    <h3 class="font-semibold text-xl text-forest-900 mb-2">Savings & Enterprise</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Structured table-banking that helps young people launch small businesses and farming projects.</p>
-                </article>
-                
-                <article class="bg-white rounded-2xl p-8 card-lift border border-gray-100">
-                    <div class="w-12 h-12 rounded-xl bg-forest-100 text-forest-800 flex items-center justify-center text-xl mb-5">
-                        <i class="fa-solid fa-book-open-reader"></i>
-                    </div>
-                    <h3 class="font-semibold text-xl text-forest-900 mb-2">Madrasa & Competitions</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Support for local madrasas plus annual Quran and Hadith contests with awards for students.</p>
-                </article>
-                
-                <article class="bg-white rounded-2xl p-8 card-lift border border-gray-100">
-                    <div class="w-12 h-12 rounded-xl bg-forest-100 text-forest-800 flex items-center justify-center text-xl mb-5">
-                        <i class="fa-solid fa-handshake-angle"></i>
-                    </div>
-                    <h3 class="font-semibold text-xl text-forest-900 mb-2">Inter-Mosque Network</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Active coordination between mosque youth groups and committees across Busia County.</p>
                 </article>
             </div>
         </div>
@@ -554,44 +521,137 @@
         </div>
     </section>
 
-    <!-- GALLERY -->
+    <!-- REDESIGNED APPEAL GALLERY -->
     <section id="gallery" class="py-24 bg-forest-50">
-        <div class="max-w-6xl mx-auto px-5">
-            <div class="text-center mb-12">
-                <span class="text-amber-600 text-sm font-semibold tracking-widest uppercase">Archive</span>
-                <h2 class="font-display text-4xl text-forest-950 mt-2">Moments that matter</h2>
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="text-center mb-16">
+                <span class="text-amber-600 text-sm font-semibold tracking-widest uppercase">Photo Archive</span>
+                <h2 class="font-display text-4xl md:text-5xl text-forest-950 mt-2">Moments That Matter</h2>
+                <p class="text-gray-500 mt-3 max-w-xl mx-auto text-sm">Explore our journey across seminars, community outreach, farming, cleaning drives, sports, and leadership.</p>
             </div>
             
-            <div class="flex flex-wrap justify-center gap-2 mb-10" id="filters">
-                <button onclick="filterGal('all')" data-f="all" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-forest-900 text-amber-400">All</button>
-                <button onclick="filterGal('leadership')" data-f="leadership" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-600 border">Leadership</button>
-                <button onclick="filterGal('seminars')" data-f="seminars" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-600 border">Seminars</button>
-                <button onclick="filterGal('community')" data-f="community" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-600 border">Community</button>
-                <button onclick="filterGal('youth')" data-f="youth" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-600 border">Youth & Activities</button>
+            <!-- Filter buttons -->
+            <div class="flex flex-wrap justify-center gap-2 mb-12" id="filters">
+                <button onclick="filterGal('all')" data-f="all" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-forest-900 text-amber-400 shadow-sm transition">All Photos</button>
+                <button onclick="filterGal('leadership')" data-f="leadership" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-gray-600 border border-gray-200 hover:border-amber-500 transition">Leadership</button>
+                <button onclick="filterGal('seminars')" data-f="seminars" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-gray-600 border border-gray-200 hover:border-amber-500 transition">Seminars & Classes</button>
+                <button onclick="filterGal('community')" data-f="community" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-gray-600 border border-gray-200 hover:border-amber-500 transition">Community & Outreach</button>
+                <button onclick="filterGal('cleaning')" data-f="cleaning" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-gray-600 border border-gray-200 hover:border-amber-500 transition">Cleaning</button>
+                <button onclick="filterGal('farming')" data-f="farming" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-gray-600 border border-gray-200 hover:border-amber-500 transition">Farming</button>
+                <button onclick="filterGal('sports')" data-f="sports" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-gray-600 border border-gray-200 hover:border-amber-500 transition">Sports</button>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gal">
-                <div class="gallery-item aspect-square rounded-xl overflow-hidden cursor-pointer relative group" data-cat="leadership" onclick="openLb(0)">
-                    <img src="logo.png" onerror="this.src='https://placehold.co/400x400/0a2f23/e8c547?text=Logo'" class="w-full h-full object-contain bg-forest-900 p-6 group-hover:scale-105 transition duration-500" loading="lazy" alt="Logo">
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="gal">
+                
+                <!-- 1. Logo -->
+                <div class="gallery-item group relative aspect-square rounded-2xl overflow-hidden shadow-md bg-forest-900 cursor-pointer" data-cat="leadership" onclick="openLb(0)">
+                    <img src="logo.png" onerror="this.src='https://placehold.co/600x600/0a2f23/e8c547?text=CMY+Logo'" class="w-full h-full object-contain p-8 group-hover:scale-110 transition duration-500" loading="lazy" alt="CMY Logo">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase">Identity</span>
+                        <h4 class="text-white font-semibold text-sm">Group Emblem & Logo</h4>
+                    </div>
                 </div>
-                <div class="gallery-item aspect-square rounded-xl overflow-hidden cursor-pointer relative group" data-cat="leadership" onclick="openLb(1)">
-                    <img src="chairman.jpg" onerror="this.src='https://placehold.co/400x400/0a2f23/e8c547?text=Chairman'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" alt="Chairman">
+
+                <!-- 2. Chairman -->
+                <div class="gallery-item group relative aspect-square rounded-2xl overflow-hidden shadow-md bg-gray-900 cursor-pointer" data-cat="leadership" onclick="openLb(1)">
+                    <img src="chairman.jpg" onerror="this.src='https://placehold.co/600x600/0a2f23/e8c547?text=Chairman'" class="w-full h-full object-cover object-top group-hover:scale-110 transition duration-500" loading="lazy" alt="Chairman">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase">Leadership</span>
+                        <h4 class="text-white font-semibold text-sm">Office of the Chairman</h4>
+                    </div>
                 </div>
-                <div class="gallery-item aspect-square rounded-xl overflow-hidden cursor-pointer relative group" data-cat="community" onclick="openLb(2)">
-                    <img src="photo1.jpg" onerror="this.src='https://placehold.co/400x400/0a2f23/e8c547?text=1'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" alt="">
+
+                <!-- 3. Leadership Meeting (photo19) -->
+                <div class="gallery-item group relative aspect-square rounded-2xl overflow-hidden shadow-md bg-gray-900 cursor-pointer" data-cat="leadership" onclick="openLb(2)">
+                    <img src="photo19.jpg" onerror="this.src='https://placehold.co/600x600/0a2f23/e8c547?text=Leadership+Meeting'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" alt="Leadership Meeting">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase">Leadership</span>
+                        <h4 class="text-white font-semibold text-sm">Executive Committee Consultation</h4>
+                    </div>
                 </div>
-                <div class="gallery-item aspect-square rounded-xl overflow-hidden cursor-pointer relative group" data-cat="youth" onclick="openLb(3)">
-                    <img src="photo2.jpg" onerror="this.src='https://placehold.co/400x400/0a2f23/e8c547?text=2'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" alt="">
+
+                <!-- 4. Seminar / Classes (photo10) -->
+                <div class="gallery-item group relative aspect-square rounded-2xl overflow-hidden shadow-md bg-gray-900 cursor-pointer" data-cat="seminars" onclick="openLb(3)">
+                    <img src="photo10.jpg" onerror="this.src='https://placehold.co/600x600/0a2f23/e8c547?text=Seminar+Classes'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" alt="Seminar Classes">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase">Seminars</span>
+                        <h4 class="text-white font-semibold text-sm">Youth Seminar & Learning Sessions</h4>
+                    </div>
                 </div>
-                <div class="gallery-item aspect-square rounded-xl overflow-hidden cursor-pointer relative group" data-cat="community" onclick="openLb(4)">
-                    <img src="photo26.jpg" onerror="this.src='https://placehold.co/400x400/0a2f23/e8c547?text=Cleaning'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" alt="Cleaning">
+
+                <!-- 5. Seminar Hall (photo13) -->
+                <div class="gallery-item group relative aspect-square rounded-2xl overflow-hidden shadow-md bg-gray-900 cursor-pointer" data-cat="seminars" onclick="openLb(4)">
+                    <img src="photo13.jpg" onerror="this.src='https://placehold.co/600x600/0a2f23/e8c547?text=Seminar+Hall'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" alt="Seminar Hall">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase">Seminars</span>
+                        <h4 class="text-white font-semibold text-sm">The Importance of Youth Lecture</h4>
+                    </div>
                 </div>
-                <div class="gallery-item aspect-square rounded-xl overflow-hidden cursor-pointer relative group" data-cat="community" onclick="openLb(5)">
-                    <img src="photo22.jpg" onerror="this.src='https://placehold.co/400x400/0a2f23/e8c547?text=Farming'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" alt="Farming">
+
+                <!-- 6. Youth Gathering (photo18) -->
+                <div class="gallery-item group relative aspect-square rounded-2xl overflow-hidden shadow-md bg-gray-900 cursor-pointer" data-cat="seminars" onclick="openLb(5)">
+                    <img src="photo18.jpg" onerror="this.src='https://placehold.co/600x600/0a2f23/e8c547?text=Youth+Presentation'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" alt="Youth Presentation">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase">Seminars</span>
+                        <h4 class="text-white font-semibold text-sm">Madrasa & Youth Presentations</h4>
+                    </div>
                 </div>
-                <div class="gallery-item aspect-square rounded-xl overflow-hidden cursor-pointer relative group" data-cat="youth" onclick="openLb(6)">
-                    <img src="photo23.jpg" onerror="this.src='https://placehold.co/400x400/0a2f23/e8c547?text=Sports'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" alt="Sports">
+
+                <!-- 7. Outdoor Gathering (photo16) -->
+                <div class="gallery-item group relative aspect-square rounded-2xl overflow-hidden shadow-md bg-gray-900 cursor-pointer" data-cat="community" onclick="openLb(6)">
+                    <img src="photo16.jpg" onerror="this.src='https://placehold.co/600x600/0a2f23/e8c547?text=Outdoor+Gathering'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" alt="Outdoor Gathering">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase">Community</span>
+                        <h4 class="text-white font-semibold text-sm">Tents & Open-Air Outreach</h4>
+                    </div>
                 </div>
+
+                <!-- 8. Community Iftar / Meal Sharing (photo5) -->
+                <div class="gallery-item group relative aspect-square rounded-2xl overflow-hidden shadow-md bg-gray-900 cursor-pointer" data-cat="community" onclick="openLb(7)">
+                    <img src="photo5.jpg" onerror="this.src='https://placehold.co/600x600/0a2f23/e8c547?text=Community+Meal'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" alt="Community Meal">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase">Community</span>
+                        <h4 class="text-white font-semibold text-sm">Ramadan Iftar & Fellowship</h4>
+                    </div>
+                </div>
+
+                <!-- 9. Cleaning (photo26) -->
+                <div class="gallery-item group relative aspect-square rounded-2xl overflow-hidden shadow-md bg-gray-900 cursor-pointer" data-cat="cleaning" onclick="openLb(8)">
+                    <img src="photo26.jpg" onerror="this.src='https://placehold.co/600x600/0a2f23/e8c547?text=Cleaning'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" alt="Cleaning">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase">Cleaning</span>
+                        <h4 class="text-white font-semibold text-sm">Community Clean-Up Drive</h4>
+                    </div>
+                </div>
+
+                <!-- 10. Farming (photo22) -->
+                <div class="gallery-item group relative aspect-square rounded-2xl overflow-hidden shadow-md bg-gray-900 cursor-pointer" data-cat="farming" onclick="openLb(9)">
+                    <img src="photo22.jpg" onerror="this.src='https://placehold.co/600x600/0a2f23/e8c547?text=Farming'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" alt="Farming">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase">Farming</span>
+                        <h4 class="text-white font-semibold text-sm">Youth Agricultural Project</h4>
+                    </div>
+                </div>
+
+                <!-- 11. Sports (photo23) -->
+                <div class="gallery-item group relative aspect-square rounded-2xl overflow-hidden shadow-md bg-gray-900 cursor-pointer" data-cat="sports" onclick="openLb(10)">
+                    <img src="photo23.jpg" onerror="this.src='https://placehold.co/600x600/0a2f23/e8c547?text=Sports'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" alt="Sports">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase">Sports</span>
+                        <h4 class="text-white font-semibold text-sm">Football & Sports Tournaments</h4>
+                    </div>
+                </div>
+
+                <!-- 12. Team Building / Rope Activity (photo20) -->
+                <div class="gallery-item group relative aspect-square rounded-2xl overflow-hidden shadow-md bg-gray-900 cursor-pointer" data-cat="sports" onclick="openLb(11)">
+                    <img src="photo20.jpg" onerror="this.src='https://placehold.co/600x600/0a2f23/e8c547?text=Team+Building'" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" alt="Team Building">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase">Sports</span>
+                        <h4 class="text-white font-semibold text-sm">Youth Team Building & Activities</h4>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -793,9 +853,9 @@
         function filterGal(cat) {
             filterBtns.forEach(b => {
                 b.classList.remove('bg-forest-900', 'text-amber-400');
-                b.classList.add('bg-white', 'text-gray-600', 'border');
+                b.classList.add('bg-white', 'text-gray-600', 'border', 'border-gray-200');
             });
-            event.target.classList.remove('bg-white', 'text-gray-600', 'border');
+            event.target.classList.remove('bg-white', 'text-gray-600', 'border', 'border-gray-200');
             event.target.classList.add('bg-forest-900', 'text-amber-400');
 
             galleryItems.forEach(item => {
@@ -807,14 +867,20 @@
             });
         }
 
+        // Full array matching the gallery order
         const lbImages = [
             'logo.png',
             'chairman.jpg',
-            'photo1.jpg',
-            'photo2.jpg',
+            'photo19.jpg',
+            'photo10.jpg',
+            'photo13.jpg',
+            'photo18.jpg',
+            'photo16.jpg',
+            'photo5.jpg',
             'photo26.jpg',
             'photo22.jpg',
-            'photo23.jpg'
+            'photo23.jpg',
+            'photo20.jpg'
         ];
 
         function openLb(idx) {
